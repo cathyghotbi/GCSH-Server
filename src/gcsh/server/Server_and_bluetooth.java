@@ -196,14 +196,171 @@ class EchoHandler extends Thread implements Runnable, DiscoveryListener{
                                     //sendMessageToDevice("btspp://00066608BB6A:1",ToContextServer);
                                 }
                                 */
-                                command[1]=Integer.parseInt(token0[1]);
-                                if(command[1]==1){
-                                    ToContextServer = "1";
-                                }
-                                if(command[1]==2){
-                                    ToContextServer = "2";
-                                }
-                                
+                                //2nd format
+		/*
+		if(command[1]==2){
+			ToContextServer ="2"; //off
+			//send to BT
+		}
+		*/
+		//     ..........................  3rd format  ..........................................
+		/*
+		if(token0[2].equals("R1") && token0[3].equals("FL") && token0[4].equals("1")){
+			System.out.println("Turn on Floor lamp in Room 1");
+			// set variable ToContextServer/ BT
+		}
+		 */
+		//..................... ROOM 1 .......................................
+		if(token0[2].equals("R1")){
+			if(token0[3].equals("FL")){
+				if(token0[4].equals("1")){
+					 System.out.println("Turn ON Floor lamp in Room 1");
+					 ToContextServer="1"; // ? other devices? .......................................
+				}//1 : on
+				else if(token0[4].equals("2")){
+					System.out.println("Turn OFF Floor lamp in Room 1");
+					ToContextServer="2";
+				}//2 : off
+				
+			}//FL
+			if(token0[3].equals("CL")){
+				if(token0[4].equals("1")){
+					 System.out.println("Turn ON Ceiling lamp in Room 1");
+					 ToContextServer="1";
+				}//1
+				else if(token0[4].equals("2")){
+					System.out.println("Turn OFF Ceiling lamp in Room 1");
+					ToContextServer="2";
+				}//2 : off
+				
+			}//CL
+			if(token0[3].equals("FN")){
+				if(token0[4].equals("1")){
+					 System.out.println("Turn ON Fan in Room 1");
+					 ToContextServer="1";
+				}//1
+				else if(token0[4].equals("2")){
+					System.out.println("Turn OFF Fan in Room 1");
+					ToContextServer="2";
+				}//2 : off
+				
+			}//FN
+			if(token0[3].equals("CR")){
+				if(token0[4].equals("1")){
+					 System.out.println("Scroll Up Curtain in Room 1");
+					 ToContextServer="1";
+				}//1
+				else if(token0[4].equals("2")){
+					System.out.println("Scroll Down Curtain in Room 1");
+					ToContextServer="2";
+				}//2 : off
+				
+			}//CR
+			
+			
+			// set variable ToContextServer/ BT
+		}//R1
+		
+		//..................... ROOM 2 .......................................
+				if(token0[2].equals("R2")){
+					if(token0[3].equals("FL")){
+						if(token0[4].equals("1")){
+							 System.out.println("Turn ON Floor lamp in Room 2");
+							 ToContextServer="1";
+						}//1 : on
+						else if(token0[4].equals("2")){
+							System.out.println("Turn OFF Floor lamp in Room 2");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//FL
+					if(token0[3].equals("CL")){
+						if(token0[4].equals("1")){
+							 System.out.println("Turn ON Ceiling lamp in Room 2");
+							 ToContextServer="1";
+						}//1
+						else if(token0[4].equals("2")){
+							System.out.println("Turn OFF Ceiling lamp in Room 2");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//CL
+					if(token0[3].equals("FN")){
+						if(token0[4].equals("1")){
+							 System.out.println("Turn ON Fan in Room 2");
+							 ToContextServer="2";
+						}//1
+						else if(token0[4].equals("2")){
+							System.out.println("Turn OFF Fan in Room 2");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//FN
+					if(token0[3].equals("CR")){
+						if(token0[4].equals("1")){
+							 System.out.println("Scroll Up Curtain in Room 2");
+							 ToContextServer="1";
+						}//1
+						else if(token0[4].equals("2")){
+							System.out.println("Scroll Down Curtain in Room 2");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//CR
+					
+					
+					// set variable ToContextServer/ BT
+				}//R2
+				//..................... ROOM 3 .......................................
+				if(token0[2].equals("R3")){
+					if(token0[3].equals("FL")){
+						if(token0[4].equals("1")){
+							 System.out.println("Turn ON Floor lamp in Room 3");
+							 ToContextServer="1";
+						}//1 : on
+						else if(token0[4].equals("2")){
+							System.out.println("Turn OFF Floor lamp in Room 3");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//FL
+					if(token0[3].equals("CL")){
+						if(token0[4].equals("1")){
+							 System.out.println("Turn ON Ceiling lamp in Room 3");
+							 ToContextServer="1";
+						}//1
+						else if(token0[4].equals("2")){
+							System.out.println("Turn OFF Ceiling lamp in Room 3");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//CL
+					if(token0[3].equals("FN")){
+						if(token0[4].equals("1")){
+							 System.out.println("Turn ON Fan in Room 3");
+							 ToContextServer="1";
+						}//1
+						else if(token0[4].equals("2")){
+							System.out.println("Turn OFF Fan in Room 3");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//FN
+					if(token0[3].equals("CR")){
+						if(token0[4].equals("1")){
+							 System.out.println("Scroll Up Curtain in Room 3");
+							 ToContextServer="1";
+						}//1
+						else if(token0[4].equals("2")){
+							System.out.println("Scroll Down Curtain in Room 3");
+							ToContextServer="2";
+						}//2 : off
+						
+					}//CR
+					
+					// set variable ToContextServer/ BT
+				}//R3
+		
                                 
                                 System.out.println("end of x coordinates");
                                 
@@ -242,7 +399,8 @@ class EchoHandler extends Thread implements Runnable, DiscoveryListener{
                                     
                                     
                                 }// for
-                                
+                                //1st format
+                                /*
                                 if ((coordinate_y[19] > coordinate_y[13])
                                         && (coordinate_y[13] > coordinate_y[7])) {
                                     System.out.println("right hand up");
@@ -251,14 +409,147 @@ class EchoHandler extends Thread implements Runnable, DiscoveryListener{
                                     ToContextServer = "h";
                                     
                                 }
-                                
+                                */
+                                /*
                                 if ((coordinate_y[19] < coordinate_y[13])
                                         && (coordinate_y[13] < coordinate_y[7])) {
                                     System.out.println("right hand down");
                                     
                                     ToContextServer = "j";
                                 }
-                                
+                                */
+                                //	     ..........................  2nd = 3rd format  ..........................................
+		
+		
+		//..................... ROOM 1 .......................................
+		if(token1[2].equals("R1")){
+			if(token1[3].equals("FL")){
+				if(token1[4].equals("1")){
+					 System.out.println("Turn ON Floor lamp in Room 1");
+					 ToContextServer="1"; // ? other devices? .......................................
+				}//1 : on
+				else if(token1[4].equals("2")){
+					System.out.println("Turn OFF Floor lamp in Room 1");
+				}//2 : off
+				
+			}//FL
+			if(token1[3].equals("CL")){
+				if(token1[4].equals("1")){
+					 System.out.println("Turn ON Ceiling lamp in Room 1");
+				}//1
+				else if(token1[4].equals("2")){
+					System.out.println("Turn OFF Ceiling lamp in Room 1");
+				}//2 : off
+				
+			}//CL
+			if(token1[3].equals("FN")){
+				if(token1[4].equals("1")){
+					 System.out.println("Turn ON Fan in Room 1");
+				}//1
+				else if(token1[4].equals("2")){
+					System.out.println("Turn OFF Fan in Room 1");
+				}//2 : off
+				
+			}//FN
+			if(token1[3].equals("CR")){
+				if(token1[4].equals("1")){
+					 System.out.println("Scroll Up Curtain in Room 1");
+				}//1
+				else if(token1[4].equals("2")){
+					System.out.println("Scroll Down Curtain in Room 1");
+				}//2 : off
+				
+			}//CR
+			
+			
+			// set variable ToContextServer/ BT
+		}//R1
+		
+		//..................... ROOM 2 .......................................
+				if(token1[2].equals("R2")){
+					if(token1[3].equals("FL")){
+						if(token1[4].equals("1")){
+							 System.out.println("Turn ON Floor lamp in Room 2");
+						}//1 : on
+						else if(token1[4].equals("2")){
+							System.out.println("Turn OFF Floor lamp in Room 2");
+						}//2 : off
+						
+					}//FL
+					if(token1[3].equals("CL")){
+						if(token1[4].equals("1")){
+							 System.out.println("Turn ON Ceiling lamp in Room 2");
+						}//1
+						else if(token1[4].equals("2")){
+							System.out.println("Turn OFF Ceiling lamp in Room 2");
+						}//2 : off
+						
+					}//CL
+					if(token1[3].equals("FN")){
+						if(token1[4].equals("1")){
+							 System.out.println("Turn ON Fan in Room 2");
+						}//1
+						else if(token1[4].equals("2")){
+							System.out.println("Turn OFF Fan in Room 2");
+						}//2 : off
+						
+					}//FN
+					if(token1[3].equals("CR")){
+						if(token1[4].equals("1")){
+							 System.out.println("Scroll Up Curtain in Room 2");
+						}//1
+						else if(token1[4].equals("2")){
+							System.out.println("Scroll Down Curtain in Room 2");
+						}//2 : off
+						
+					}//CR
+					
+					
+					// set variable ToContextServer/ BT
+				}//R2
+				//..................... ROOM 3 .......................................
+				if(token1[2].equals("R3")){
+					if(token1[3].equals("FL")){
+						if(token1[4].equals("1")){
+							 System.out.println("Turn ON Floor lamp in Room 3");
+						}//1 : on
+						else if(token1[4].equals("2")){
+							System.out.println("Turn OFF Floor lamp in Room 3");
+						}//2 : off
+						
+					}//FL
+					if(token1[3].equals("CL")){
+						if(token1[4].equals("1")){
+							 System.out.println("Turn ON Ceiling lamp in Room 3");
+						}//1
+						else if(token1[4].equals("2")){
+							System.out.println("Turn OFF Ceiling lamp in Room 3");
+						}//2 : off
+						
+					}//CL
+					if(token1[3].equals("FN")){
+						if(token1[4].equals("1")){
+							 System.out.println("Turn ON Fan in Room 3");
+						}//1
+						else if(token1[4].equals("2")){
+							System.out.println("Turn OFF Fan in Room 3");
+						}//2 : off
+						
+					}//FN
+					if(token1[3].equals("CR")){
+						if(token1[4].equals("1")){
+							 System.out.println("Scroll Up Curtain in Room 3");
+						}//1
+						else if(token1[4].equals("2")){
+							System.out.println("Scroll Down Curtain in Room 3");
+						}//2 : off
+						
+					}//CR
+					
+					// set variable ToContextServer/ BT
+				}//R3
+		
+		
                             }// if for kinect
                             
                             
